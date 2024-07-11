@@ -1,7 +1,7 @@
 'use client'
 
 import { FC, ReactNode } from 'react'
-import { Toaster } from 'react-hot-toast'
+import { Toaster as ToasterCN } from "@/components/ui/sonner"
 
 interface ProvidersProps {
   children: ReactNode
@@ -10,7 +10,8 @@ interface ProvidersProps {
 const Providers: FC<ProvidersProps> = ({ children }) => {
   return (
     <>
-      <Toaster position='top-center' reverseOrder={false} />
+      <ToasterCN duration={100000} />
+      {/* <Toaster position='top-center' reverseOrder={false} /> */}
       {children}
     </>
   )

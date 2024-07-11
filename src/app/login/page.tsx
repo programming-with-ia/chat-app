@@ -1,10 +1,9 @@
 'use client'
 
-import {Button, LoadingButton} from '@/components/ui/button'
-// import { signIn } from '@/lib/auth'
-import { FC, useState } from 'react'
+import {LoadingButton} from '@/components/ui/button'
+import { FC, useEffect, useState } from 'react'
 import { signIn } from 'next-auth/react'
-import { toast } from 'react-hot-toast'
+import { toast } from 'sonner'
 
 const Page: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -34,8 +33,8 @@ const Page: FC = () => {
             isLoading={isLoading}
             type='button'
             className='max-w-sm w-full'
-            onClick={loginWithGoogle}>
-            {isLoading ? null : (
+            onClick={loginWithGoogle}
+            icon={(
               <svg
                 className='mr-2 h-4 w-4'
                 aria-hidden='true'
@@ -64,6 +63,7 @@ const Page: FC = () => {
                 <path d='M1 1h22v22H1z' fill='none' />
               </svg>
             )}
+            >
             Google
           </LoadingButton>
         </div>

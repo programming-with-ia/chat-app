@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider as NextThemesProvider } from "next-themes"
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import Providers from "@/components/ui/providers";
+import Providers from "@/components/providers";
+import { Suspense } from "react";
+import { ProgressBar } from '@lexz451/next-nprogress';
+import SonnerTest from "@/components/sonnerTest";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,20 +21,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`w-screen h-screen ${inter.className}`}>
-      <NextThemesProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
+    <html lang="en" className="dark customScrollBar">
+      <body className={`w-screen h-screen customScrollBar ${inter.className}`}>
+        <NextThemesProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Suspense fallback={true}>
+            <ProgressBar
+              // color={config.BrandColor}
+              height="2px"
+              options={{
+                showSpinner: false,
+              }}
+            />
+          </Suspense>
           <Providers>
             <main className="h-full">
               {children}
+            {/* <SonnerTest /> */}
             </main>
           </Providers>
-      </NextThemesProvider>
+        </NextThemesProvider>
       </body>
     </html>
   );
