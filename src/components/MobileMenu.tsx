@@ -6,8 +6,6 @@ import Image from "next/image";
 import { FC, Fragment, useEffect, useState } from "react";
 import { Icons } from "./Icons";
 import SignOutButton from "./SignOutButton";
-import FriendRequestSidebarOptions from "./FriendRequestSidebarOptions";
-import SidebarChatList from "./SidebarChatList";
 import { Session } from "next-auth";
 import { SidebarOption } from "@/types/types";
 import { usePathname } from "next/navigation";
@@ -15,15 +13,12 @@ import { Button, buttonVariants } from "./ui/button";
 import { Link } from "@lexz451/next-nprogress";
 import {
   Sheet,
-  SheetPortal,
-  SheetOverlay,
   SheetTrigger,
   SheetClose,
   SheetContent,
   SheetHeader,
   SheetFooter,
   SheetTitle,
-  SheetDescription,
 } from "./ui/sheet";
 import { orUndefined } from "@/lib/utils";
 import NavCompos from "./NavCompos";
@@ -92,7 +87,6 @@ const MobileChatSheetLayout: FC<MobileChatLayoutProps> = ({
                 key={"profile"}
                 className="flex items-center justify-start border-t gap-2 absolute bottom-0 right-0 left-0 py-2 px-6"
               >
-                {/* <div className="flex items-center gap-x-4 text-sm font-semibold leading-6"> */}
                 <div className="relative min-h-8 min-w-8">
                   <Image
                     fill
@@ -121,7 +115,6 @@ const MobileChatSheetLayout: FC<MobileChatLayoutProps> = ({
                     {session.user.email}
                   </span>
                 </div>
-                {/* </div> */}
                 <SignOutButton className="h-full aspect-square flex-shrink-0 ml-auto" />
               </SheetFooter>
               {/* content end */}

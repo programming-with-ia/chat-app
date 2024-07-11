@@ -1,20 +1,19 @@
-'use client'
+"use client";
 
-import { FC, ReactNode } from 'react'
-import { Toaster as ToasterCN } from "@/components/ui/sonner"
+import { FC, ReactNode } from "react";
+import { Toaster } from "@/components/ui/sonner";
 
 interface ProvidersProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 const Providers: FC<ProvidersProps> = ({ children }) => {
   return (
     <>
-      <ToasterCN duration={100000} />
-      {/* <Toaster position='top-center' reverseOrder={false} /> */}
+      <Toaster />
       {children}
     </>
-  )
-}
+  );
+};
 
-export default Providers
+export default Providers;

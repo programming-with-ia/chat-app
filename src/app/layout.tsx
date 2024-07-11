@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import Providers from "@/components/providers";
 import { Suspense } from "react";
 import { ProgressBar } from '@lexz451/next-nprogress';
-import SonnerTest from "@/components/sonnerTest";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +29,6 @@ export default function RootLayout({
         >
           <Suspense fallback={true}>
             <ProgressBar
-              // color={config.BrandColor}
               height="2px"
               options={{
                 showSpinner: false,
@@ -41,7 +38,6 @@ export default function RootLayout({
           <Providers>
             <main className="h-full">
               {children}
-            {/* <SonnerTest /> */}
             </main>
           </Providers>
         </NextThemesProvider>

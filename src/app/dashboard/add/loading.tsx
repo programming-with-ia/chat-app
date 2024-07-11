@@ -1,7 +1,5 @@
 import { Skeleton } from '@/components/skeleton'
 import { FC } from 'react'
-// import Skeleton from 'react-loading-skeleton'
-// import 'react-loading-skeleton/dist/skeleton.css'
 
 const loading: FC<{}> = () => {
   return (

@@ -5,7 +5,7 @@ import { cn, toPusherKey } from "@/lib/utils";
 import { Message } from "@/lib/validations/message";
 import { format } from "date-fns";
 import Image from "next/image";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 const formatTimestamp = (timestamp: number) => {
   return format(timestamp, "HH:mm");
@@ -43,16 +43,11 @@ const Messages: FC<MessagesProps> = ({
     };
   }, [chatId]);
 
-  const scrollDownRef = useRef<HTMLDivElement | null>(null);
-
   return (
     <div
       id="messages"
       className="flex h-full flex-1 flex-col-reverse gap-4 p-3 overflow-y-auto customScrollBar scrolling-touch"
     >
-      {/* //!! */}
-      <div ref={scrollDownRef} />
-
       {messages.map((message, index) => {
         const isCurrentUser = message.senderId === sessionId;
 
@@ -105,7 +100,11 @@ const MessageComp: FC<MessageProps> = ({
           !alignRignt
             ? "bg-primary text-primary-foreground"
             : "bg-secondary text-secondary-foreground",
-          !showImage ? (alignRignt ? "rounded-br-none" : "rounded-bl-none") : null
+          !showImage
+            ? alignRignt
+              ? "rounded-br-none"
+              : "rounded-bl-none"
+            : null
         )}
       >
         {message.text}{" "}

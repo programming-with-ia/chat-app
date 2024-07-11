@@ -17,8 +17,6 @@ export async function POST(req: Request) {
       'get',
       `user:email:${emailToAdd}`
     )) as string
-    // const idToAdd = await db.get(`user:email:${emailToAdd}`) as string
-    console.log("idToAdd", idToAdd)
 
     if (!idToAdd) {
       return new Response('This person does not exist.', { status: 400 })
@@ -42,8 +40,6 @@ export async function POST(req: Request) {
       `user:${idToAdd}:incoming_friend_requests`,
       session.user.id
     )) as 0 | 1
-    // const isAlreadyAdded = await db.sismember(`user:${idToAdd}:incoming_friend_requests`, session.user.id)
-    // console.log(isAlreadyAdded, "isAlreadyAdded")
 
     if (isAlreadyAdded) {
       return new Response('Already added this user', { status: 400 })
@@ -61,7 +57,6 @@ export async function POST(req: Request) {
     }
 
     // valid request, send friend request
-
     await pusherServer.trigger(
       toPusherKey(`user:${idToAdd}:incoming_friend_requests`),
       'incoming_friend_requests',

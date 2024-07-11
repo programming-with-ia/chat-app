@@ -30,7 +30,7 @@ async function getChatMessages(chatId: string) {
 
     return messages;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     notFound();
   }
 }
@@ -76,12 +76,12 @@ const page = async ({ params }: PageProps) => {
 
           <div className="flex flex-col leading-tight">
             <div className="text-xl flex items-center">
-              <span className="mr-3 font-semibold">
-                {chatPartner.name}
-              </span>
+              <span className="mr-3 font-semibold">{chatPartner.name}</span>
             </div>
 
-            <span className="text-sm text-muted-foreground">{chatPartner.email}</span>
+            <span className="text-sm text-muted-foreground">
+              {chatPartner.email}
+            </span>
           </div>
         </div>
       </div>

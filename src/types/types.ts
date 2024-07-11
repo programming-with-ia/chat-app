@@ -1,13 +1,13 @@
-import { Icon } from "@/components/Icons"
+import { Icon } from "@/components/Icons";
 
 export interface SidebarOption {
-  id: number
-  name: string
-  href: string
-  Icon: Icon
+  id: number;
+  name: string;
+  href: string;
+  Icon: Icon;
 }
 
 export interface SessionType {
-  user: User
+  user: User;
   expires: string;
 }

@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button";
+import React from "react";
 
-export default async function Home() {
-
-  return (
-    <Button>Hello</Button>
-  );
+function Page() {
+  return <div>Page</div>;
 }
+
+export default Page;
