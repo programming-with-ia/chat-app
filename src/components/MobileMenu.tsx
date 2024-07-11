@@ -36,16 +36,15 @@ const MobileChatSheetLayout: FC<MobileChatLayoutProps> = ({
   sidebarOptions,
   unseenRequestCount,
 }) => {
-  const [open, setOpen] = useState<boolean>(false);
-
   const pathname = usePathname();
 
   useEffect(() => {
-    setOpen(false);
+    const closebutton = document.getElementById("menuClose")
+    closebutton?.click()
   }, [pathname]);
 
   return (
-    <div className="fixed bg-secondary border-b top-0 right-0 left-0 py-2 px-4">
+    <header className="fixed bg-secondary border-b top-0 right-0 left-0 z-10 py-2 px-4">
       <div className="w-full flex justify-between items-center">
         <Link
           href="/dashboard"
@@ -64,6 +63,7 @@ const MobileChatSheetLayout: FC<MobileChatLayoutProps> = ({
               <SheetTitle>Dashboard</SheetTitle>
               <SheetClose asChild>
                 <Button
+                  id="menuClose"
                   className="ml-auto"
                   variant={"ghost"}
                   size={"icon"}
@@ -122,7 +122,7 @@ const MobileChatSheetLayout: FC<MobileChatLayoutProps> = ({
           </SheetContent>
         </Sheet>
       </div>
-    </div>
+    </header>
   );
 };
 

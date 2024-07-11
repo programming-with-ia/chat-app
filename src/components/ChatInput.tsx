@@ -34,10 +34,10 @@ const ChatInput: FC<ChatInputProps> = ({ chatPartner, chatId }) => {
   };
 
   return (
-    <div className="border-t p-4">
+    <div className="border-t py-4 w-full">
       <div
         onClick={() => textareaRef.current?.focus()}
-        className="relative flex flex-1 overflow-hidden p-2 rounded-[26px] p shadow-sm ring-1 ring-inset ring-border focus-within:ring-primary"
+        className="relative mx-auto w-11/12 flex-shrink focus-within:w-full transition-all duration-300 flex flex-1 overflow-hidden p-2 rounded-[26px] p shadow-sm ring-1 ring-inset ring-border focus-within:ring-primary"
       >
         <Textarea
           onKeyDown={(e) => {

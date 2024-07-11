@@ -4,7 +4,7 @@ import { FC } from "react";
 
 const loading: FC<{}> = () => {
   return (
-    <div className="flex flex-col h-full items-center relative pt-8">
+    <div className="flex flex-col h-full items-center relative p-8">
       <Skeleton height={40} width={400} />
       {/* chat messages */}
       <div className="flex-1 flex flex-col gap-6 max-h-full overflow-y-auto w-full mt-9 customScrollBar">
